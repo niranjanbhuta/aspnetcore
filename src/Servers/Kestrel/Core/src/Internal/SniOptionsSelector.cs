@@ -121,6 +121,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Core.Internal
                     if (serverName.EndsWith(suffix, StringComparison.OrdinalIgnoreCase))
                     {
                         sniOptions = options;
+                        // _wildcardPrefixOptions is sorted with longest first, so we know the first match is the longest possible match.
                         break;
                     }
                 }
@@ -133,7 +134,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Core.Internal
             {
                 if (serverName is null)
                 {
-                    // There was no ALPN
+                    // There was no SNI
                     throw new AuthenticationException(CoreStrings.FormatSniNotConfiguredToAllowNoServerName(_endpointName));
                 }
                 else
