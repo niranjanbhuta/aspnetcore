@@ -206,7 +206,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Core.Tests
         }
 
         [Fact]
-        public void WildcardOnlyMatchesNullServerNameDueToNoAlpn()
+        public void WildcardOnlyMatchesNullServerNameDueToNoSni()
         {
             var sniDictionary = new Dictionary<string, SniConfig>
             {
