@@ -41,7 +41,7 @@ namespace Microsoft.AspNetCore.Diagnostics
             string sourceFileContent,
             string compiledContent,
             IEnumerable<DiagnosticMessage> messages,
-            string failureSummary)
+            string? failureSummary)
         {
             SourceFilePath = sourceFilePath;
             SourceFileContent = sourceFileContent;
@@ -68,7 +68,7 @@ namespace Microsoft.AspNetCore.Diagnostics
         /// <see cref="CompiledContent"/> represents the transformed content. This property can be null if
         /// the exception is encountered during transformation.
         /// </remarks>
-        public string CompiledContent { get; }
+        public string? CompiledContent { get; }
 
         /// <summary>
         /// Gets a sequence of <see cref="DiagnosticMessage"/> produced as a result of compilation.
@@ -78,6 +78,6 @@ namespace Microsoft.AspNetCore.Diagnostics
         /// <summary>
         /// Summary message or instructions to fix the failure.
         /// </summary>
-        public string FailureSummary { get; }
+        public string? FailureSummary { get; }
     }
 }
